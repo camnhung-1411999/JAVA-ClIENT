@@ -1,5 +1,4 @@
-import controller.login;
-import controller.signup;
+import controller.SignupController;
 import view.ChatView;
 import view.LoginView;
 import view.SignupView;
@@ -12,7 +11,7 @@ public class Main {
 //        login controller = new login(loginView);
 //        controller.showLoginView();
         SignupView signupView = new SignupView();
-        signup controller = new signup(signupView);
+        SignupController controller = new SignupController(signupView);
         controller.showSignup();
     }
 }

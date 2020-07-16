@@ -1,7 +1,7 @@
 package controller;
 
-import DAO.readWriteCSV;
-import DAO.user;
+import DAO.ReadWriteCSV;
+import DAO.User;
 import view.ChatView;
 import view.LoginView;
 import view.SignupView;
@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class signup {
+public class SignupController {
     SignupView signupView;
     LoginView loginView;
     ChatView chatView;
-    List<user> list;
+    List<User> list;
 
-    public signup(SignupView signupView){
+    public SignupController(SignupView signupView){
         this.signupView = signupView;
         signupView.addLoginListener(new LoginListener());
         signupView.addSignupListener(new SignupListener());
@@ -46,10 +46,10 @@ public class signup {
                 signupView.showMessage("Confirm password fail !");
                 return;
             }
-            user iuser = signupView.getUser();
-            list = readWriteCSV.read();
+            User iuser = signupView.getUser();
+            list = ReadWriteCSV.read();
             list.add(iuser);
-            readWriteCSV.write(list);
+            ReadWriteCSV.write(list);
             chatView = new ChatView(iuser.getName());
             chat controller = new chat(chatView);
             controller.showChatView();

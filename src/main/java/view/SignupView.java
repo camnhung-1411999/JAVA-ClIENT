@@ -1,7 +1,7 @@
 package view;
 
 
-import DAO.user;
+import DAO.User;
 import multithreadtcp.Client;
 
 import javax.imageio.ImageIO;
@@ -148,8 +148,8 @@ public class SignupView extends JFrame implements ActionListener {
         }
         return false;
     }
-    public user getUser(){
-        return  new user(nameField.getText().trim(),userField.getText().trim(),String.copyValueOf(passwordField.getPassword()));
+    public User getUser(){
+        return  new User(nameField.getText().trim(),userField.getText().trim(),String.copyValueOf(passwordField.getPassword()));
     }
     public void addSignupListener(ActionListener listener){
         signupBtn.addActionListener(listener);

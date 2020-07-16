@@ -7,10 +7,10 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class readWriteCSV {
-    public static List<user> read() {
+public class ReadWriteCSV {
+    public static List<User> read() {
         BufferedReader reader = null;
-        List<user> list = new ArrayList<user>();
+        List<User> list = new ArrayList<User>();
 
         try {
             String line = "";
@@ -19,7 +19,7 @@ public class readWriteCSV {
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
                 if (fields.length > 0) {
-                    user temp = new user();
+                    User temp = new User();
                     temp.setUsername(fields[0]);
                     temp.setName(fields[1]);
                     temp.setPassword(fields[2]);
@@ -39,7 +39,7 @@ public class readWriteCSV {
         }
         return list;
     }
-    public static void write(List<user> list){
+    public static void write(List<User> list){
         FileWriter fw=null;
         try{
             fw=new FileWriter("src\\main\\java\\DAO\\user.csv");

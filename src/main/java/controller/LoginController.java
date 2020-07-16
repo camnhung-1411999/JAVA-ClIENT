@@ -1,7 +1,7 @@
 package controller;
 
-import DAO.readWriteCSV;
-import DAO.user;
+import DAO.ReadWriteCSV;
+import DAO.User;
 import view.ChatView;
 import view.LoginView;
 import view.SignupView;
@@ -10,12 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class login {
+public class LoginController {
     LoginView loginView;
     SignupView signupView;
     ChatView chatView;
-    List<user> list;
-    public login(LoginView loginView){
+    List<User> list;
+    public LoginController(LoginView loginView){
         this.loginView = loginView;
         loginView.addLoginListener(new LoginListener());
         loginView.addSignupListener(new SignupListener());
@@ -31,7 +31,7 @@ public class login {
                 loginView.showMessage("Please enter all fields");
                 return;
             }
-            list = readWriteCSV.read();
+            list = ReadWriteCSV.read();
             for(int i=0;i<list.size();i++) {
                 if (list.get(i).getUsername().equals(loginView.getName())) {
                     if (list.get(i).getPassword().equals(loginView.getPassword())) {
@@ -55,7 +55,7 @@ public class login {
         public void actionPerformed(ActionEvent e) {
 
             signupView = new SignupView();
-            signup controller = new signup(signupView);
+            SignupController controller = new SignupController(signupView);
             controller.showSignup();
             loginView.setVisible(false);
         }

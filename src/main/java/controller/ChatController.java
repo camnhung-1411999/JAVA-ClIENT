@@ -8,13 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class chat {
+public class ChatController{
     LoginView loginView;
     ChatView chatView;
     String user;
     Client client;
 
-    public chat(ChatView chatView){
+    public ChatController(ChatView chatView){
         this.chatView = chatView;
         client = new Client(this.chatView.getName());
         client.sendName();
@@ -70,7 +70,7 @@ public class chat {
         public void actionPerformed(ActionEvent e) {
             client.writeMessage("logout");
             loginView = new LoginView();
-            login controller = new login(loginView);
+            LoginController controller = new LoginController(loginView);
             controller.showLoginView();
             chatView.setVisible(false);
         }
